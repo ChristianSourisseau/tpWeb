@@ -22,8 +22,7 @@ Rectangle.prototype.paint = function(ctx) {
     ctx.stroke();
   };
   
-  Drawing.prototype.paint = function(ctx) {
-    console.log(this.getForms());
+  Drawing.prototype.paint = function(ctx, canvas) {
     ctx.fillStyle = '#F0F0F0'; // set canvas' background color
     ctx.fillRect(0, 0, canvas.width, canvas.height);  // now fill the canvas
     

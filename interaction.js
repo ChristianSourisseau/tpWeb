@@ -15,7 +15,7 @@ function DnD(canvas, interactor) {
     this.mousedown = true;
     this.posx_init = getMousePosition(canvas, evt).x;
     this.posy_init = getMousePosition(canvas, evt).y;
-
+    interactor.onInteractionStart(this);
     //log events
     console.log(this.posx_init);
     console.log(this.posy_init);
@@ -26,7 +26,7 @@ function DnD(canvas, interactor) {
     this.mousedown = false;
     this.posx_fin = getMousePosition(canvas, evt).x;
     this.posy_fin = getMousePosition(canvas, evt).y;
-
+    interactor.onInteractionEnd(this);
       //log events
       console.log(this.posx_fin);
       console.log(this.posy_fin);
@@ -34,7 +34,10 @@ function DnD(canvas, interactor) {
 
   DnD.prototype.mouseMove = function(evt) {
     if (this.mousedown) {
-       //draw something
+      //pos "fin" de la souris, temporaire pour interactor
+       this.posx_fin = getMousePosition(canvas, evt).x;
+       this.posy_fin = getMousePosition(canvas, evt).y;
+       interactor.onInteractionUpdate(this);
       console.log('moving');
     }
   }

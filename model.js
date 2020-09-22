@@ -29,8 +29,8 @@ function Rectangle(xinit, yinit, width, height, thickness, color) {
     // top left corner
     this.tlx = xinit;
     this.tly = yinit;
-    this.brx = xinit + width;
-    this.bry = yinit + height;
+    this.posx_fin = xinit + width;
+    this.posy_fin = yinit + height;
     Form.call(this, thickness, color);
     Rectangle.prototype.getInitX = function() {
         return this.tlx;
@@ -39,10 +39,10 @@ function Rectangle(xinit, yinit, width, height, thickness, color) {
         return this.tly;
     }
     Rectangle.prototype.getFinX = function() {
-        return this.brx;
+        return this.posx_fin;
     }
     Rectangle.prototype.getFinY = function() {
-        return this.bry;
+        return this.posy_fin;
     }
 
     Rectangle.prototype.getThickness = function() {
