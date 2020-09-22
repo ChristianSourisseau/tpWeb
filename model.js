@@ -25,14 +25,13 @@ function Form(thickness, color) {
     }
 }
 
-function Rectangle(xinit, yinit, w, h, th, c) {
+function Rectangle(xinit, yinit, width, height, thickness, color) {
     // top left corner
     this.tlx = xinit;
     this.tly = yinit;
-    this.brx = Math.abs(xinit - w);
-    this.bry = Math.abs(yinit - h);
-    Form.call(this, th, c);
-
+    this.brx = xinit + width;
+    this.bry = yinit + height;
+    Form.call(this, thickness, color);
     Rectangle.prototype.getInitX = function() {
         return this.tlx;
     }
@@ -44,6 +43,13 @@ function Rectangle(xinit, yinit, w, h, th, c) {
     }
     Rectangle.prototype.getFinY = function() {
         return this.bry;
+    }
+
+    Rectangle.prototype.getThickness = function() {
+        return this.thickness;
+    }
+    Rectangle.prototype.getColor = function() {
+        return this.color;
     }
 }
 
@@ -66,5 +72,12 @@ function Line(initx, inity, finx, finy, th, c) {
     }
     Line.prototype.getFinY = function() {
         return this.posy_fin;
+    }
+
+    Line.prototype.getThickness = function() {
+        return this.thickness;
+    }
+    Line.prototype.getColor = function() {
+        return this.color;
     }
 }
