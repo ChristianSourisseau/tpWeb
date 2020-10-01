@@ -1,13 +1,9 @@
 
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
 
-Form.prototype.paint = function() {
-    //abstract method?
-}
-
 Rectangle.prototype.paint = function(ctx) {
-
-    ctx.rect(this.getInitX(), this.getInitY(), this.getFinX(), this.getFinY());
+    ctx.beginPath();
+    ctx.rect(this.getInitX(), this.getInitY(), this.getWidth(), this.getHeight());
     ctx.strokeStyle = this.getColor(); 
     ctx.lineWidth = this.getThickness();
     ctx.stroke();
@@ -22,7 +18,7 @@ Rectangle.prototype.paint = function(ctx) {
     ctx.stroke();
   };
   
-  Drawing.prototype.paint = function(ctx, canvas) {
+  Drawing.prototype.paint = function(ctx) {
     ctx.fillStyle = '#F0F0F0'; // set canvas' background color
     ctx.fillRect(0, 0, canvas.width, canvas.height);  // now fill the canvas
     

@@ -3,10 +3,10 @@
 // L'interacteur viendra dans un second temps donc ne vous en souciez pas au départ.
 function DnD(canvas, interactor) {
   // Définir ici les attributs de la 'classe'
-  this.posx_init = 0;
-  this.posy_init = 0;
-  this.posx_fin = 0;
-  this.posy_fin = 0;
+  this.posx_init;
+  this.posy_init;
+  this.posx_fin;
+  this.posy_fin;
   this.mousedown = false;
 
 	// Developper les 3 fonctions gérant les événements
@@ -43,9 +43,9 @@ function DnD(canvas, interactor) {
   }
   
   // Associer les fonctions précédentes aux évènements du canvas.
-  canvas.addEventListener('mousedown', this.mouseDown, false);
-  canvas.addEventListener('mousemove', this.mouseMove, false);
-  canvas.addEventListener('mouseup', this.mouseUp, false);
+  canvas.addEventListener('mousedown', this.mouseDown.bind(this), false);
+  canvas.addEventListener('mousemove', this.mouseMove.bind(this), false);
+  canvas.addEventListener('mouseup', this.mouseUp.bind(this), false);
 };
 
 
